@@ -1,0 +1,21 @@
+<%= link_to 'Back', artists_path %>
+<% if @current_user.present? %>
+  <% if @current_user.admin? %>
+    <p><%= link_to 'Edit', edit_artist_path %> </p>
+    <p><%= link_to 'Delete', @artist, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+  <% end %>
+<% end %>
+<h1> <%= @artist.name %> </h1>
+
+
+<% if @artist.image.present? %>
+  <%= image_tag @artist.image %>
+<% end %>
+
+<p> About me </p>
+<%= @artist.about_me %>
+
+<p> Performances </p>
+<% @artist.roles.each do |r| %>
+  <p><%= r.title %>: <%= Event.find(r.event_id).title %></p>
+<% end %>

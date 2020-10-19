@@ -1,0 +1,9 @@
+<%= form_for @role do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title,:required => true %>
+  <%= f.label :event_id%>
+  <%= f.select :event_id, Event.pluck(:title,:id), :required => true %>
+  <%= f.label :artist_id%>
+  <%= f.select :artist_id, Artist.pluck(:name,:id), :required => true %>
+  <%= f.submit %>
+<% end %>

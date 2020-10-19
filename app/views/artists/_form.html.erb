@@ -1,0 +1,9 @@
+<%= form_for @artist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true %>
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+  <%= f.label :about_me %>
+  <%= f.text_field :about_me %>
+  <%= f.submit "New Artist" %>
+<% end %>

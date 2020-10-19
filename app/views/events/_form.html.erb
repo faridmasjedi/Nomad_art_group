@@ -1,0 +1,19 @@
+<%= form_for @event do |f| %>
+  <p><%= f.label :title , :required => true %></p>
+  <p><%= f.text_field :title %></p>
+  <p><%= f.label :poster %></p>
+  <p><%= f.text_field :poster %></p>
+  <p><%= f.label :date %></p>
+  <p><%= f.text_field :date %></p>
+  <p><%= f.label :duration %></p>
+  <p><%= f.text_field :duration %></p>
+  <p><%= f.label :description %></p>
+  <p><%= f.text_field :description %></p>
+  <p><%= f.label :genre_id, "Genre" %></p>
+  <p><%= f.select :genre_id, Genre.pluck(:title, :id), :include_blank => true %></p>
+  <p><%= f.label :price %></p>
+  <p><%= f.text_field :price %> </p>
+  <p><%= f.label :venue %> </p>
+  <p><%= f.text_field :venue %> </p>
+  <p><%= f.submit %></p>
+<% end %>

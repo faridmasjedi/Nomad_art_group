@@ -1,0 +1,27 @@
+<% if @current_user.present? %>
+  <% if @current_user.admin? %>
+    <p><%= link_to "Edit an Event", edit_event_path %></p>
+    <p><%= link_to "Delete event", @event, :method => 'delete', :data => {:confirm => "Are you sure?"}%></p>
+    <p><%= link_to "all roles",event_roles_path %></p>
+
+  <% end %>
+<% end %>
+
+<h1><%= @event.title %></h1>
+
+<% if @event.poster.present? %>
+  <%= image_tag @event.poster %>
+<% end %>
+
+<p><%= @event.title %></p>
+<p>Date: <%= @event.date %></p>
+<p>Duration: <%= @event.duration %></p>
+<p>Description: <%= @event.description %></p>
+<p>Genre: <%= @event.genre.title %></p>
+<p>Price: <%= @event.price %></p>
+<p>Venue: <%= @event.venue %></p>
+<hr>
+<p>Artists: </p>
+<% @event.roles.each do |role| %>
+  <p><%= role.title %>: <%= Artist.find(role.artist_id).name %> </p>
+<% end %>

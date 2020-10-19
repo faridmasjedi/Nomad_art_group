@@ -1,0 +1,17 @@
+<% if @current_user.present? %>
+  <% if @current_user.admin? %>
+    <p><%=link_to "New Event", new_event_path %></p>
+    <p><%=link_to "New Role", new_role_path %></p>
+  <% end %>
+<% end %>
+
+<h1>All Events</h1>
+
+<% @events.each do |event| %>
+  <% if event.poster.present? %>
+    <%= image_tag event.poster %>
+  <% end %>
+
+  <p><%= link_to event.title, event %></p>
+  <hr>
+<% end %>

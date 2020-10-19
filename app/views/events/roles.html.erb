@@ -1,0 +1,6 @@
+<h1>All Roles</h1>
+
+<% @roles.each do |r| %>
+  <p><%= r.title %></p>
+  <p><%=link_to Artist.find(r.artist_id).name, "/events/#{r.event_id}/roles/#{r.artist_id}"%></p>
+<% end %>

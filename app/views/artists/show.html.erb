@@ -1,8 +1,9 @@
-<%= link_to 'Back', artists_path %>
+<%# <%= link_to 'Back', artists_path %>
 <% if @current_user.present? %>
   <% if @current_user.admin? %>
-    <p><%= link_to 'Edit', edit_artist_path %> </p>
-    <p><%= link_to 'Delete', @artist, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+    <br><br>
+    <%= link_to "Edit #{@artist.name}", edit_artist_path %>
+    <%= link_to "Delete #{@artist.name}", @artist, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
   <% end %>
 <% end %>
 <h1> <%= @artist.name %> </h1>

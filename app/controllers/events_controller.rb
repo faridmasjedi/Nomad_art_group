@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :check_for_admin, :only => [:new,:edit,:destroy]
+  before_action :check_for_admin, :only => [:new,:edit,:destroy,:roles]
   def index
     @events = Event.all
   end
@@ -22,19 +22,21 @@ class EventsController < ApplicationController
   end
 
   def show
+
     @event = Event.find params[:id]
     @roles = @event.roles
   end
 
   def roles
+
     event = Event.find params[:id]
     @roles = event.roles
   end
-  def roleshow
-    event = Event.find params[:id]
-    roles = event.roles
-    # @artist = roles.
-  end
+  # def roleshow
+  #   event = Event.find params[:id]
+  #   roles = event.roles
+  #   # @artist = roles.
+  # end
 
   def destroy
     event = Event.find params[:id]
@@ -44,6 +46,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title,:poster,:date,:duration,:description,:genre_id,:price,:venue)
+    params.require(:event).permit(:title,:poster,:date,:duration,:description,:genre_id,:price,:venue,:whats_on)
   end
 end

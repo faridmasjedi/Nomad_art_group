@@ -10,7 +10,7 @@ class ArtistsController < ApplicationController
 
   def create
     artist = Artist.create artist_params
-    redirect_to artist
+    redirect_to new_role_path
   end
 
   def show
@@ -29,6 +29,10 @@ class ArtistsController < ApplicationController
 
   def destroy
     @artist = Artist.find params[:id]
+    roles = Role.where(:artist_id => params[:id])
+    roles.each do |r|
+        r.destroy
+    end
     @artist.destroy
     redirect_to artists_path
   end

@@ -1,4 +1,20 @@
-<h1>Home<h1>
-<% if @current_user.present? %>
-  <p>Hello <%= @current_user.email %></p>
+<%= link_to 'Facebook', 'https://www.facebook.com/nomadartgroup/', :target => '_blank' %>
+<%= link_to 'Instagram', 'https://www.instagram.com/nomadartgroup/', :target => '_blank' %>
+<%= link_to 'Contact Us', contact_us_path %>
+<h1> Nomad Art Group </h1>
+
+<p> Nomad Art Group built on the strong traditions of presenting creative art
+    performances to the audience in Australia. From our humble beginnings as a
+    small and fledgeling community theatre, we have helped bring laughter, drama
+    and the best voices from around the Country to our stages.</p>
+
+<% Event.all.each do |e| %>
+  <% if e.whats_on == 'new' %>
+    <h1> What's On </h1>
+    <p><%=link_to e.title, e %></p>
+    <% if e.poster.present? %>
+      <p><%= image_tag e.poster%></p>
+    <% end %>
+    <p><%= e.description%></p>
+  <% end %>
 <% end %>

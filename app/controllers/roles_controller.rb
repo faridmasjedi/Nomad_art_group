@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  before_action :check_for_admin , :only => [:new,:destroy,:show]
   def new
     @role = Role.new
   end
@@ -8,18 +9,17 @@ class RolesController < ApplicationController
     redirect_to event
   end
 
-  def index
-    @roles = Role.all
-  end
-
   def show
     @role = Role.find params[:id]
   end
 
   def destroy
-    role = Role.find params[:id]
-    role.destroy
-    redirect_to roles_path
+    @role = Role.find params[:id]
+    id = Role.find(params[:id]).event_id
+    @role.delete
+    # artist.destroy
+
+    redirect_to "/events/#{id}"
   end
 
   private

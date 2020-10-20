@@ -1,0 +1,14 @@
+<% if @current_user.present? %>
+  <h1><%= @current_user.email %> Page</h1>
+  <p>Hello <%= @current_user.email %></p>
+
+  <%= link_to "new to list", event_add_path %>
+  <% @current_user.events.each do |event| %>
+    <p>
+    <% if event.poster.present? %>
+      <%= link_to image_tag event.poster, event %>
+    <% end %>
+    <%= link_to event.title, event %>
+    </p>
+  <% end %>
+<% end %>

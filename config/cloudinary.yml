@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dyk5r1te6
+  api_key: '981592262736468'
+  api_secret: 6gLNWrQJkd-ZsIWkdXhz3OBiJ3Y
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dyk5r1te6
+  api_key: '981592262736468'
+  api_secret: 6gLNWrQJkd-ZsIWkdXhz3OBiJ3Y
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dyk5r1te6
+  api_key: '981592262736468'
+  api_secret: 6gLNWrQJkd-ZsIWkdXhz3OBiJ3Y
+  enhance_image_tag: true
+  static_file_support: false

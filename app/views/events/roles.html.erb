@@ -1,6 +1,6 @@
-<h1>All Roles</h1>
+<h1>Select a Role to Delete</h1>
 
 <% @roles.each do |r| %>
-  <p><%= r.title %></p>
-  <p><%=link_to Artist.find(r.artist_id).name, "/events/#{r.event_id}/roles/#{r.artist_id}"%></p>
+  <p><%=link_to r.title, r  %>
+   <%= Artist.find(r.artist_id).name%></p> <!--#, "/events/#{r.event_id}/roles/#{r.artist_id}" -->
 <% end %>

@@ -1,0 +1,10 @@
+<h1> Add to my list </h1>
+
+  <p> <%= @user.email %> list </p>
+   <%= form_for '/user' do |f| %>
+    <% Event.all.each do |event| %>
+      <%= check_box_tag "numbers[]",event.id, @user.event_ids.include?(event.id), id: dom_id(event)%>
+      <%=label_tag dom_id(event), event.title %><br>
+    <% end %>
+    <%= f.submit "Watched List"%>
+  <% end %>

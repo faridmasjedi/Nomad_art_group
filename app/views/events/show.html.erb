@@ -1,8 +1,8 @@
 <% if @current_user.present? %>
   <% if @current_user.admin? %>
-    <p><%= link_to "Edit an Event", edit_event_path %></p>
-    <p><%= link_to "Delete event", @event, :method => 'delete', :data => {:confirm => "Are you sure?"}%></p>
-    <p><%= link_to "all roles",event_roles_path %></p>
+    <br><br>
+    <%= link_to "Edit #{@event.title}", edit_event_path %>
+    <%= link_to "Delete #{@event.title}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
 
   <% end %>
 <% end %>
@@ -17,11 +17,21 @@
 <p>Date: <%= @event.date %></p>
 <p>Duration: <%= @event.duration %></p>
 <p>Description: <%= @event.description %></p>
+<% if @event.genre.present? %>
 <p>Genre: <%= @event.genre.title %></p>
+<% end %>
 <p>Price: <%= @event.price %></p>
 <p>Venue: <%= @event.venue %></p>
 <hr>
+<% if @current_user.present? %>
+  <% if @current_user.admin? %>
+    <br><br>
+    <%=link_to "New Role", new_role_path %>
+    <%= link_to "Delete a Role",event_roles_path %>
+  <% end %>
+<% end %>
+
 <p>Artists: </p>
 <% @event.roles.each do |role| %>
-  <p><%= role.title %>: <%= Artist.find(role.artist_id).name %> </p>
+    <p><%= role.title %>: <%= Artist.find(role.artist_id).name %> </p>
 <% end %>

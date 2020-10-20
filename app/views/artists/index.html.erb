@@ -1,6 +1,4 @@
-<% if @current_user.present? && @current_user.admin? %>
-  <%= link_to "Add an Artist", new_artist_path %>
-<% end %>
+
 
 <h1> All Artists </h1>
 <% @artists.each do |artist| %>

@@ -12,16 +12,16 @@
   <body>
     <%= link_to "Home", root_path %>
     <% if @current_user.present? %>
+      <%= link_to "My Page", user_path %>
+      <%= link_to "Logout #{@current_user.email}",login_path, :method => "delete" %>
       <% if @current_user.admin? %>
         <%= link_to "All users",users_path %>
-        <p><%= link_to "all roles",roles_path %></p>
       <% end %>
-      <%= link_to "Logout #{@current_user.email}",login_path, :method => "delete" %>
     <% else %>
       <%= link_to "Sign Up", new_user_path %>
       <%= link_to "Sign In", login_path%>
     <% end %>
-
+    <br><br>
     <%= link_to "Nomad Team",artists_path %>
     <%= link_to "Events", events_path %>
     <%= yield %>

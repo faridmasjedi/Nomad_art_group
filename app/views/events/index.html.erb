@@ -1,16 +1,12 @@
-<% if @current_user.present? %>
-  <% if @current_user.admin? %>
-    <p><%=link_to "New Event", new_event_path %></p>
-  <% end %>
-<% end %>
-
 <h1>All Events</h1>
 
-<% @events.each do |event| %>
-  <% if event.poster.present? %>
-    <%= image_tag event.poster %>
+<div id="events">
+  <% @events.each do |event| %>
+    <div id='event'>
+        <% if event.poster.present? %>
+          <%= link_to image_tag(event.poster, :class => "img-responsive", :class => 'img-thumbnail', :id => 'event_img'), event %>
+        <% end %>
+        <p><%= link_to event.title, event %><p>
+    </div>
   <% end %>
-
-  <p><%= link_to event.title, event %></p>
-  <hr>
-<% end %>
+</div>

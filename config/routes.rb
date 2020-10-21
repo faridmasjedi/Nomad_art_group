@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'genres/new'
   root :to => 'pages#home'
   get '/user' => 'pages#user'
   get '/contact-us' => 'pages#contact'
@@ -21,4 +20,7 @@ Rails.application.routes.draw do
   get '/events/:id/roles' =>  'events#roles', :as => 'event_roles'
 
   resources :genres, :only => [:new,:create,:destroy]
+
+  resources :photos 
+  resources :videos
 end

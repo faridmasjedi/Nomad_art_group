@@ -1,20 +1,67 @@
-<%= link_to 'Facebook', 'https://www.facebook.com/nomadartgroup/', :target => '_blank' %>
-<%= link_to 'Instagram', 'https://www.instagram.com/nomadartgroup/', :target => '_blank' %>
-<%= link_to 'Contact Us', contact_us_path %>
 <h1> Nomad Art Group </h1>
 
-<p> Nomad Art Group built on the strong traditions of presenting creative art
-    performances to the audience in Australia. From our humble beginnings as a
-    small and fledgeling community theatre, we have helped bring laughter, drama
-    and the best voices from around the Country to our stages.</p>
+<div class="row">
+  <div class="col-md-3">
+    <h2>Reviews on Veronica Room Theatre</h2>
+    <div class="row">
+      <div class="col">
+        <%= link_to image_tag('https://i.imgur.com/BqlWk41.jpg',:class => "img-thumbnail"), 'https://nightwrites.com/2020/02/29/veronicas-room-nomad-art-group/', :target => '_blank' %>
+        <p>There’s a lot going on in Veronica’s Room from the many layered
+          identities and exploration of the psychological self and personal
+          responsibility.
+        </p>
+        <%= link_to 'Link to "Night Writes" review', 'https://nightwrites.com/2020/02/29/veronicas-room-nomad-art-group/', :target => '_blank' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= link_to image_tag('https://i.imgur.com/mFhWyvr.jpg',:class => "img-thumbnail"), 'https://stateoftheart.net.au/reviews/veronicas-room-review/', :target => '_blank'%>
+        <p>Presenting an eerie rendition of Ira Levin’s polarising play, Nomad Art Group’s
+           latest production uncovers the fragility of personal identity and gradually
+           reveals the shocking consequences of trauma.
+         </p>
+         <%= link_to '"State of the art" review', 'https://stateoftheart.net.au/reviews/veronicas-room-review/', :target => '_blank' %>
+      </div>
+    </div>
+  </div>
 
-<% Event.all.each do |e| %>
-  <% if e.whats_on == 'new' %>
-    <h1> What's On </h1>
-    <p><%=link_to e.title, e %></p>
-    <% if e.poster.present? %>
-      <p><%= image_tag e.poster%></p>
-    <% end %>
-    <p><%= e.description%></p>
-  <% end %>
-<% end %>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col">
+        <h2> About us </h2>
+        <p> Nomad Art Group built on the strong traditions of presenting creative art
+            performances to the audience in Australia. From our humble beginnings as a
+            small and fledgeling community theatre, we have helped bring laughter, drama
+            and the best voices from around the Country to our stages.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <% Event.all.each do |e| %>
+          <% if e.whats_on == 'new' %>
+            <h2> What's On </h2>
+            <p><%=link_to e.title, e %></p>
+            <% if e.poster.present? %>
+              <div class="text-center">
+                <p><%= link_to image_tag(e.poster, :class => "img-thumbnail"), e %></p>
+              </div>
+            <% end %>
+            <!--<p><%= e.description%></p>-->
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <h2>Donation</h2>
+    <p>The future of theatre is in our hands. Your support will keep our community
+       of artists, theatre makers and audiences intact.
+    </p>
+    <%= link_to image_tag('https://i.imgur.com/1GqaxvC.jpg',:class => "img-thumbnail"), donation_path %>
+    <%= link_to 'Donate Now', donation_path %>
+    </p>
+  </div>
+
+</div>

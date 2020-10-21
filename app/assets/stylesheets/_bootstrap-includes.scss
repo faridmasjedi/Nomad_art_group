@@ -1,0 +1,106 @@
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+* {
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif !important;
+}
+body{
+ height: 100%;
+ position: relative;
+}
+.container{
+  max-width:960px;
+  padding-top:30px;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.row{
+  margin-bottom: 20px;
+}
+
+footer{
+position:relative;
+bottom:0;
+width:100%;
+margin-top: 20px;
+}
+header{
+  position:relative;
+  top:0;
+  width:100%;
+}
+#events, #artists{
+  text-align: center;
+  margin-bottom: 70px;
+  max-width:800px;
+  margin:0 auto;
+}
+
+
+#event_img, #artist_img{
+  box-shadow: 0 0 30px gray;
+  margin-bottom:10px;
+  max-width:100%;
+}
+#event_img{
+  height:240px;
+  width:400px;
+}
+#artist,#event{
+  display:inline-block;
+  margin: 0 10px 10px 0;
+}
+#artist{
+  width:30%;
+}
+#event{
+  width:45%;
+}
+.new-event-nav a{
+  margin:10px;
+}
+.img{
+  width:50%;
+  margin: 0 auto;
+}
+.event_container{
+  width:900px;
+}
+.event-poster, .event-info{
+  display: inline-block;
+}
+.event-poster{
+  width:70%;
+  vertical-align: top;
+  padding-right:0;
+}
+.event-info{
+  width: 20%;
+  margin-top:0.5vmin;
+  margin-left:10px;
+}
+.event-poster img{
+  width:100%;
+}
+.event-info p{
+  margin:1px;
+  font-size:2.5vmin;
+}
+#desc p{
+  font-size:20px;
+}
+#img-nav{
+  max-width:100%;
+}
+#small-img{
+  width:10%;
+  margin-top:2px;
+}

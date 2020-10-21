@@ -52,7 +52,7 @@ e4 = Event.create :title => 'Third Script Workshop', :date => '02 July - 05 Dec 
 puts "#{Event.count} events created."
 
 User.destroy_all
-u1 = User.create :email => 'farid@nomad.com', :password => 'nomad'
+u1 = User.create :email => 'farid@nomad.com', :password => 'nomad', :admin => true
 u2 = User.create :email => 'mo@nomad.com', :password => 'nomad'
 u3 = User.create :email => 'sal@nomad.com', :password => 'nomad'
 u4 = User.create :email => 'sam@nomad.com', :password => 'nomad'
@@ -62,7 +62,21 @@ Genre.destroy_all
 g1 = Genre.create :title => 'Theatre Play'
 g2 = Genre.create :title => 'Play Reading'
 g3 = Genre.create :title => 'Movie Workshop'
+puts "#{Genre.count} genres created"
 
+Photo.destroy_all
+p1 = Photo.create :img => 'https://nomadartgroup.com/images/TempPhoto/dystopia_1170x498.png'
+p2 = Photo.create :img => 'https://nomadartgroup.com/images/TempPhoto/The_Good_Doctor_1170x498.png'
+p3 = Photo.create :img => 'https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/s960x960/89030833_2778922292145022_1450915775941443584_o.jpg?_nc_cat=109&_nc_sid=9e2e56&_nc_ohc=Lw8VGF2g6wUAX-PIKDW&_nc_ht=scontent-syd2-1.xx&tp=7&oh=bf7b199f2212858107224a426ca97020&oe=5FB4F6B2'
+p4 = Photo.create :img => 'https://nomadartgroup.com/images/TempPhoto/photo-1495131796982-281014f71fbd_bw.jpg'
+puts "#{Photo.count} photos created"
+
+Video.destroy_all
+v1 = Video.create :vid => 'https://www.nomadartgroup.com/media/videos/2019/07/20/dystopia-ad1.mp4'
+v2 = Video.create :vid => 'https://youtu.be/HZkWf6LqJ-U'
+v3 = Video.create :vid => 'https://www.facebook.com/nomadartgroup/videos/476352509700684/'
+v4 = Video.create :vid => 'https://www.facebook.com/nomadartgroup/videos/1628496813854248/?t=11'
+puts "#{Video.count} videos created"
 
 #associations
 puts "artists and roles"
@@ -88,3 +102,15 @@ e1.users << u1 << u2 << u3
 e2.users << u1 << u3
 e3.users << u1 << u4
 e4.users << u1 << u3
+
+puts "images and events"
+e1.photos << p1
+e2.photos << p2
+e3.photos << p3
+e4.photos << p4
+
+puts "videos and events"
+e1.videos << v1
+e2.videos << v2
+e3.videos << v3
+e4.videos << v4

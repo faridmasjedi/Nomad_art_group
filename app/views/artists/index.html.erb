@@ -1,9 +1,17 @@
-
-
 <h1> All Artists </h1>
-<% @artists.each do |artist| %>
-  <p><%= link_to artist.name, artist %></p>
-  <% if artist.image.present? %>
-    <p><%= link_to image_tag artist.image, artist %></p>
-  <%end%>
-<% end %>
+
+<div id="artists">
+  <% @artists.each do |artist| %>
+      <div id='artist'>
+        <% if artist.image.present? %>
+          <%= link_to image_tag(artist.image, :id => 'artist_img',:class => "img-responsive", :class => 'img-thumbnail'), artist %>
+        <%else%>
+          <%= link_to image_tag('https://i.imgur.com/6S2tKUb.jpg',:class => "img-responsive", :class => 'img-thumbnail', :id => 'artist_img'),artist %>
+        <% end %>
+        <br>
+        <%= link_to artist.name, artist%>
+
+      </div>
+
+  <% end %>
+</div>

@@ -1,4 +1,16 @@
-<h1>Hi</h1>
-<% @users.each do |user|%>
-<p> <%= user.email %> </p>
+<h1>All Users</h1>
+<% @users.each_with_index do |user,index|%>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+      <div class="row">
+        <div class="col-md-1 bg-dark text-white text-left ">
+          <%= index %>
+        </div>
+        <div class="col-md-11 bg-secondary text-white text-left">
+          <%= user.email %>
+        </div>
+      </div>
+    </div>
+</div>
 <% end %>

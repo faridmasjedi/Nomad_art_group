@@ -1,6 +1,17 @@
 <h1>Add new art genre</h1>
+
 <%= form_for @genre do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, :class => 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= f.submit "New Genre", :class => 'btn btn-primary'%>
+    </div>
+  </div>
 <% end %>

@@ -117,9 +117,13 @@ header{
   width:100%;
 }
 
-.event-info p, .artist-info p{
+.event-info p {
   margin:1px;
   font-size:2vmin;
+}
+.artist-info p{
+  margin:1px;
+  font-size:3vmin;
 }
 
 #desc{

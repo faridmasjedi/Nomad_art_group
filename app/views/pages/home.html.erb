@@ -17,7 +17,7 @@
         <%= link_to image_tag(@reviews.second.img,:class => "img-thumbnail"), @reviews.second.link, :target => '_blank' %>
         <p>
           <%= @reviews.second.description %>
-         </p>
+        </p>
          <%= link_to "Link to #{@reviews.second.title}", @reviews.second.link, :target => '_blank' %>
       </div>
     </div>
@@ -45,7 +45,6 @@
                 <p><%= link_to image_tag(e.poster, :class => "img-thumbnail"), e %></p>
               </div>
             <% end %>
-            <!--<p><%= e.description%></p>-->
           <% end %>
         <% end %>
       </div>
@@ -59,7 +58,6 @@
     </p>
     <%= link_to image_tag('https://i.imgur.com/1GqaxvC.jpg',:class => "img-thumbnail"), donation_path %>
     <%= link_to 'Donate Now', donation_path %>
-    </p>
   </div>
 
 </div>

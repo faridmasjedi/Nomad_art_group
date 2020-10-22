@@ -3,6 +3,7 @@ class RolesController < ApplicationController
   def new
     @role = Role.new
   end
+
   def create
     role = Role.create role_params
     event = Event.find role_params[:event_id]
@@ -17,8 +18,6 @@ class RolesController < ApplicationController
     @role = Role.find params[:id]
     id = Role.find(params[:id]).event_id
     @role.delete
-    # artist.destroy
-
     redirect_to "/events/#{id}"
   end
 

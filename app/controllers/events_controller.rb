@@ -31,12 +31,7 @@ class EventsController < ApplicationController
     event = Event.find params[:id]
     @roles = event.roles
   end
-  # def roleshow
-  #   event = Event.find params[:id]
-  #   roles = event.roles
-  #   # @artist = roles.
-  # end
-
+  
   def destroy
     event = Event.find params[:id]
     event.destroy

@@ -1,6 +1,9 @@
 <% if @current_user.present? %>
   <h1>Welcome <%= @current_user.email %></h1><br/>
-  <h1 class='text-primary' style='font-size:25px'>List of Events organazied Nomad Art Group that you liked </h1>
+
+  <h1 class='text-primary' style='font-size:25px'>List of Events organazied Nomad
+    Art Group that you liked
+  </h1>
 
   <%= link_to "Choose Which Events you like", event_add_path %>
   <br><br>
@@ -18,4 +21,5 @@
     </div>
     <hr>
   <% end %>
+  
 <% end %>

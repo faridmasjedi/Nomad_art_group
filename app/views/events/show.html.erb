@@ -1,9 +1,11 @@
 <div class="new-event-nav">
+
   <% if @current_user.present? %>
     <% if @current_user.admin? %>
       <br><br>
       <%= link_to "Edit #{@event.title}", edit_event_path %>
       <%= link_to "Delete #{@event.title}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"},:class => 'text-danger'%>
+
       <% if @current_user.present? %>
         <% if @current_user.admin? %>
           <%= link_to "Delete a Role",event_roles_path,:class => 'text-danger' %>
@@ -12,9 +14,12 @@
       <%= link_to "Back", events_path %>
     <% end %>
   <% end %>
+
 </div>
 <br/>
+
 <h1><%= @event.title %></h1>
+
 <div class='event-container'>
   <div class="event-poster">
     <% if @event.poster.present? %>
@@ -42,6 +47,7 @@
     <% end %>
   </div>
 </div>
+
 <br>
 <% if @event.description.present? %>
   <div id='desc'><p><%= @event.description %></p></div>
@@ -51,17 +57,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item active">
         <a class="nav-link" data-toggle="collapse" data-parent="#event-navs" data-target="#cast_crew"> Artists </a>
       </li>
+
       <li class="nav-item active">
         <a class="nav-link" data-toggle="collapse" data-parent="#event-navs" data-target="#photos"> Images</a>
       </li>
+
       <li class="nav-item active">
         <a class="nav-link" data-toggle="collapse" data-parent="#event-navs" data-target="#videos" > Videos </a>
       </li>
+
     </ul>
   </div>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -75,7 +86,8 @@
             <p>
               <%= link_to image_tag(Artist.find(role.artist_id).image, :id=>'small-img'), Artist.find(role.artist_id)%>
               <%= role.title %>:
-              <%= link_to Artist.find(role.artist_id).name, Artist.find(role.artist_id)%> </p>
+              <%= link_to Artist.find(role.artist_id).name, Artist.find(role.artist_id)%>
+            </p>
         <% end %>
       </div>
     </div>

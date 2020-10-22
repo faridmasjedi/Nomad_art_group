@@ -1,28 +1,27 @@
 <h1>New Video</h1>
 
 <%= form_for @video do |f| %>
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <div class="form-group">
-      <%=f.label :vid, "Video"%>
-      <%=f.text_field :vid, :class => 'form-control' %>
+
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%=f.label :vid, "Video"%>
+        <%=f.text_field :vid, :class => 'form-control' %><p class='text-primary'>*the video should have youtube url</p>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <div class="form-group">
-      <%=f.label :event_id %>
-      <%=f.select :event_id, Event.pluck(:title,:id),{}, :class => 'form-control' %>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%=f.label :event_id %>
+        <%=f.select :event_id, Event.pluck(:title,:id),{}, :class => 'form-control' %>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <%= f.submit "New Video", :class => 'btn btn-primary' %>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= f.submit "New Video", :class => 'btn btn-primary' %>
+    </div>
   </div>
-</div>
-
-
 
 <% end %>

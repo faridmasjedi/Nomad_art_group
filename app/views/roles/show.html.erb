@@ -1,1 +1,2 @@
-<p><%= link_to "Delete role", @role, :method => 'delete' %>
+<h1>Delete <%= Artist.find(@role.artist_id).name%> as <%=@role.title%> of <%=Event.find(@role.event_id).title%>?</h1>
+<h1><%= link_to "Delete role", @role, :method => 'delete', :class => 'btn btn-lg btn-danger' %></h1>

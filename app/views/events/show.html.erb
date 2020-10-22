@@ -3,16 +3,17 @@
     <% if @current_user.admin? %>
       <br><br>
       <%= link_to "Edit #{@event.title}", edit_event_path %>
-      <%= link_to "Delete #{@event.title}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+      <%= link_to "Delete #{@event.title}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"},:class => 'text-danger'%>
       <% if @current_user.present? %>
         <% if @current_user.admin? %>
-          <%= link_to "Delete a Role",event_roles_path %>
+          <%= link_to "Delete a Role",event_roles_path,:class => 'text-danger' %>
         <% end %>
       <% end %>
+      <%= link_to "Back", events_path %>
     <% end %>
   <% end %>
 </div>
-
+<br/>
 <h1><%= @event.title %></h1>
 <div class='event-container'>
   <div class="event-poster">
@@ -47,67 +48,67 @@
 <% end %>
 <hr>
 
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" data-toggle="collapse" data-target="#cast_crew"> Artists </a>
+        <a class="nav-link" data-toggle="collapse" data-parent="#event-navs" data-target="#cast_crew"> Artists </a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" data-toggle="collapse" data-target="#photos"> Images <span class="sr-only">(current)</span></a>
+        <a class="nav-link" data-toggle="collapse" data-parent="#event-navs" data-target="#photos"> Images</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" data-toggle="collapse" data-target="#videos" > Videos </a>
+        <a class="nav-link" data-toggle="collapse" data-parent="#event-navs" data-target="#videos" > Videos </a>
       </li>
     </ul>
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 </nav>
 
-<div id='cast_crew' class='collapse'>
-  <div class="row">
-    <div class="col-md-6 offset-md-1">
-      <% @event.roles.each do |role| %>
-          <p>
-            <%= link_to image_tag(Artist.find(role.artist_id).image, :id=>'small-img'), Artist.find(role.artist_id)%>
-            <%= role.title %>:
-            <%= link_to Artist.find(role.artist_id).name, Artist.find(role.artist_id)%> </p>
-      <% end %>
+<div id="event-navs">
+  <div id='cast_crew' class='collapse' data-parent="#event-navs">
+    <div class="row">
+      <div class="col-md-6 offset-md-1">
+        <% @event.roles.each do |role| %>
+            <p>
+              <%= link_to image_tag(Artist.find(role.artist_id).image, :id=>'small-img'), Artist.find(role.artist_id)%>
+              <%= role.title %>:
+              <%= link_to Artist.find(role.artist_id).name, Artist.find(role.artist_id)%> </p>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-
-<div id='photos' class='collapse show'>
-  <% @event.photos.each do |p| %>
-    <% if p.img.present? %>
-      <% if @current_user.present? %>
-        <% if @current_user.admin? %>
-          <%=link_to image_tag(p.img, :id => 'img-nav'), p %>
-          <p><%=link_to 'Delete this image', p %></p>
-          <hr>
-        <% end %>
-      <% else %>
-        <%= image_tag p.img,:id => 'img-nav' %>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<div id="videos" class='collapse'>
-  <% @event.videos.each do |v| %>
-    <% if v.vid.present? %>
-      <iframe title="YouTube video player" width="100%" height='400px' src="http://www.youtube.com/embed/<%= youtube_embed(v.vid) %>" frameborder="0" allowfullscreen></iframe>
-      <% if @current_user.present? %>
-        <% if @current_user.admin? %>
-          <p><%=link_to 'Delete this video', v %></p>
-          <hr>
+  <div id='photos' class='collapse show' data-parent="#event-navs">
+    <% @event.photos.each do |p| %>
+      <% if p.img.present? %>
+        <% if @current_user.present? %>
+          <% if @current_user.admin? %>
+            <%=link_to image_tag(p.img, :id => 'img-nav'), p %>
+            <p><%=link_to 'Delete this image', p, :class => 'text-danger' %></p>
+            <hr>
+          <% end %>
+        <% else %>
+          <%= image_tag p.img,:id => 'img-nav' %>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <div id="videos" class='collapse' data-parent="#event-navs">
+    <% @event.videos.each do |v| %>
+      <% if v.vid.present? %>
+        <iframe title="YouTube video player" width="100%" height='400px' src="http://www.youtube.com/embed/<%= youtube_embed(v.vid) %>" frameborder="0" allowfullscreen></iframe>
+        <% if @current_user.present? %>
+          <% if @current_user.admin? %>
+            <p><%=link_to 'Delete this video', v, :class => 'text-danger' %></p>
+            <hr>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :genres, :only => [:new,:create,:destroy]
 
-  resources :photos 
+  resources :photos
   resources :videos
+  resources :reviews, :only => [:index,:new,:create]
 end

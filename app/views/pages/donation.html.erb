@@ -1,19 +1,41 @@
 <h1>Online Donation</h1>
-<p>Use this form to make an online donation. If this is for something specific,
-   please note that in the comment box</p>
+<h1 class='text-primary' style='font-size:25px'>Use this form to make an online
+  donation. If this is for something specific, please note that in the comment
+  box
+</h1>
 
-<h2>Donor information</h2>
 <%= form_tag donation_path do %>
-  <%= label_tag :first_name %>
-  <%= text_field_tag :first_name,nil, :required => true%>
-  <%= label_tag :last_name %>
-  <%= text_field_tag :last_name,nil, :required => true %>
-  <%= label_tag :email %>
-  <% if @current_user.present? %>
-    <%= email_field_tag :email, @current_user.email, :required => true %>
-  <% else %>
-    <%= email_field_tag :email,nil, :required => true %>
-  <% end %>
-
-  <%= submit_tag "Process Donation"%>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+          <%= label_tag :first_name %>
+          <%= text_field_tag :first_name,nil, :required => true, :class=> 'form-control'%>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+          <%= label_tag :last_name %>
+          <%= text_field_tag :last_name,nil, :required => true, :class=> 'form-control' %>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="form-group">
+          <%= label_tag :email %>
+          <% if @current_user.present? %>
+            <%= email_field_tag :email, @current_user.email, :required => true,:class=> 'form-control' %>
+          <% else %>
+            <%= email_field_tag :email,nil, :required => true, :class=> 'form-control' %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= submit_tag "Process Donation",:class =>'btn btn-primary'%>
+    </div>
+  </div>
 <% end %>

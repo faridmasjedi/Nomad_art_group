@@ -5,22 +5,20 @@
     <h2>Reviews on Veronica Room Theatre</h2>
     <div class="row">
       <div class="col">
-        <%= link_to image_tag('https://i.imgur.com/BqlWk41.jpg',:class => "img-thumbnail"), 'https://nightwrites.com/2020/02/29/veronicas-room-nomad-art-group/', :target => '_blank' %>
-        <p>There’s a lot going on in Veronica’s Room from the many layered
-          identities and exploration of the psychological self and personal
-          responsibility.
+        <%= link_to image_tag(@reviews.first.img,:class => "img-thumbnail"), @reviews.first.link, :target => '_blank' %>
+        <p>
+          <%= @reviews.first.description %>
         </p>
-        <%= link_to 'Link to "Night Writes" review', 'https://nightwrites.com/2020/02/29/veronicas-room-nomad-art-group/', :target => '_blank' %>
+        <%= link_to "Link to #{@reviews.first.title}", @reviews.first.link, :target => '_blank' %>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <%= link_to image_tag('https://i.imgur.com/mFhWyvr.jpg',:class => "img-thumbnail"), 'https://stateoftheart.net.au/reviews/veronicas-room-review/', :target => '_blank'%>
-        <p>Presenting an eerie rendition of Ira Levin’s polarising play, Nomad Art Group’s
-           latest production uncovers the fragility of personal identity and gradually
-           reveals the shocking consequences of trauma.
+        <%= link_to image_tag(@reviews.second.img,:class => "img-thumbnail"), @reviews.second.link, :target => '_blank' %>
+        <p>
+          <%= @reviews.second.description %>
          </p>
-         <%= link_to '"State of the art" review', 'https://stateoftheart.net.au/reviews/veronicas-room-review/', :target => '_blank' %>
+         <%= link_to "Link to #{@reviews.second.title}", @reviews.second.link, :target => '_blank' %>
       </div>
     </div>
   </div>

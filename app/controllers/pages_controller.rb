@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   before_action :check_for_login, :only => [:user]
   def home
+    @reviews = Review.all.shuffle
   end
 
   def user

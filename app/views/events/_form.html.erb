@@ -34,16 +34,8 @@
   <div class="row">
     <div class="col-md-4 offset-md-4">
       <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, :class => 'form-control' %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <div class="form-group">
         <%= f.label :genre_id, "Genre" %>
-        <%= f.select :genre_id, Genre.pluck(:title, :id),{}, :include_blank => true,  :class => 'form-control' %>
+        <%= f.select :genre_id, Genre.pluck(:title, :id),{}, :include_blank => true, :class => 'form-control' %>
       </div>
     </div>
   </div>
@@ -66,6 +58,14 @@
   <div class="row">
     <div class="col-md-4 offset-md-4">
       <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: "30", rows: "10", :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
         <%= f.label :whats_on %>
         <%= f.text_field :whats_on, :class => 'form-control' %><p class='text-primary'> *if it is a running event, just write 'new'</p>
       </div>
@@ -73,7 +73,7 @@
   </div>
   <div class="row">
     <div class="col-md-4 offset-md-4">
-      <%= f.submit "New Event", :class => 'btn btn-primary' %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
     </div>
   </div>
 <% end %>

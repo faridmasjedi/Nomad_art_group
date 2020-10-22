@@ -32,6 +32,9 @@
               <li class="nav-item">
                 <a class="nav-link" href=<%=artists_path%>>Team</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%=reviews_path%>>Reviews</a>
+              </li>
 
               <% if @current_user.present? %>
                 <% if @current_user.admin? %>
@@ -52,6 +55,8 @@
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href=<%= new_photo_path %>>New Image</a>
                       <a class="dropdown-item" href=<%= new_video_path %>>New Video</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href=<%= new_review_path %>>New Review</a>
 
                     </div>
                   </li>

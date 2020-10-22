@@ -1,6 +1,2 @@
-<% if @current_user.present? && @current_user.admin? %>
-  <p><%= link_to "Add an Artist", new_artist_path %></p>
-<% end %>
-
 <h1>Add a new Role</h1>
 <%=render :partial => 'form' %>

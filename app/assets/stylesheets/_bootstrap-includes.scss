@@ -51,8 +51,8 @@ header{
   max-width:100%;
 }
 #event_img{
-  height:240px;
-  width:400px;
+  height:220px;
+  width:450px;
 }
 #artist,#event{
   display:inline-block;
@@ -71,30 +71,48 @@ header{
   width:50%;
   margin: 0 auto;
 }
-.event_container{
+.event_container, .artist-container{
   width:900px;
+  max-height:1000px;
 }
-.event-poster, .event-info{
+
+.event-poster, .event-info, .artist-image, .artist-info{
   display: inline-block;
 }
-.event-poster{
-  width:70%;
+.event-poster, .artist-image{
   vertical-align: top;
   padding-right:0;
+  box-shadow: 0 0 15px gray;
+}
+.event-poster{
+  width: 70%;
+}
+.artist-image{
+  width:50vmin;
 }
 .event-info{
   width: 20%;
-  margin-top:0.5vmin;
-  margin-left:10px;
+  margin-top:25px;
+  margin-left:5vmin;
 }
-.event-poster img{
+.artist-info{
+  width: 20%;
+  margin-top:200px;
+  margin-left:2.5vmin;
+}
+.event-poster img,.artist-image img{
   width:100%;
 }
-.event-info p{
+
+.event-info p, .artist-info p{
   margin:1px;
-  font-size:2.5vmin;
+  font-size:2vmin;
 }
-#desc p{
+#desc{
+  max-width: 900px;
+  width:90vw;
+}
+#desc p, {
   font-size:20px;
 }
 #img-nav{
@@ -103,4 +121,39 @@ header{
 #small-img{
   width:10%;
   margin-top:2px;
+}
+
+.navbar-nav li:hover{
+  cursor: pointer;
+}
+
+.artist-show-nav a{
+  margin:10px;
+}
+
+#media-delete{
+  margin:0 auto;
+  max-width:900px;
+}
+#media-delete img{
+  width:100%;
+}
+#media-delete iframe{
+  width:100%;
+}
+
+#user-container{
+  width:900px;
+  text-align:center;
+  margin: 0 auto;
+}
+#user-events, #user-event-title{
+  display: block;
+  text-align:center;
+}
+.review{
+  max-width:900px;
+  text-align:center;
+}
+#reviews-container{
 }

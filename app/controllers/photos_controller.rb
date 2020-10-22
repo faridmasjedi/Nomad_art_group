@@ -4,9 +4,9 @@ class PhotosController < ApplicationController
     @photo = Photo.new
   end
 
-  def index
-    @photos = Photo.all
-  end
+  # def index
+  #   @photos = Photo.all
+  # end
 
   def create
     photo = Photo.create photo_params

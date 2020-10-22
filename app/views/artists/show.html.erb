@@ -1,21 +1,38 @@
-<% if @current_user.present? %>
-  <% if @current_user.admin? %>
-    <br><br>
-    <%= link_to "Edit #{@artist.name}", edit_artist_path %>
-    <%= link_to "Delete #{@artist.name}", @artist, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+<div class="artist-show-nav">
+  <% if @current_user.present? %>
+    <% if @current_user.admin? %>
+      <br><br>
+      <%= link_to "Edit #{@artist.name}", edit_artist_path %>
+      <%= link_to "Delete #{@artist.name}", @artist, :method => 'delete',:data => {:confirm => 'Are you sure?'},:class => 'text-danger' %>
+      <%= link_to "Back", artists_path %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+<br/>
+
 <h1> <%= @artist.name %> </h1>
+<div class="artist-container">
+  <div class="artist-image">
+    <% if @artist.image.present? %>
+      <%= image_tag @artist.image %>
+    <% else %>
+        <%= image_tag 'https://i.imgur.com/6S2tKUb.jpg' %>
+    <% end %>
+  </div>
 
+  <div class="artist-info">
+    <% if @artist.roles.present? %>
+      <% @artist.roles.each do |r| %>
+        <p><%= r.title %>: <%=link_to Event.find(r.event_id).title, Event.find(r.event_id) %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <% if @artist.about_me.present? %>
 
-<% if @artist.image.present? %>
-  <%= image_tag @artist.image %>
-<% end %>
-
-<p> About me </p>
-<%= @artist.about_me %>
-
-<p> Performances </p>
-<% @artist.roles.each do |r| %>
-  <p><%= r.title %>: <%= Event.find(r.event_id).title %></p>
-<% end %>
+    <div id='desc'>
+      <br/>
+      <p> About me </p>
+      <p><%= @artist.about_me %>
+    </div>
+  <% end %>
+</div>

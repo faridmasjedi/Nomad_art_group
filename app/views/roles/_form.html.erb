@@ -1,9 +1,32 @@
 <%= form_for @role do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title,:required => true %>
-  <%= f.label :event_id%>
-  <%= f.select :event_id, Event.pluck(:title,:id), :include_blank => true, :required => true %>
-  <%= f.label :artist_id%>
-  <%= f.select :artist_id, Artist.pluck(:name,:id), :required => true %>
-  <%= f.submit %>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title,:required => true, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%= f.label :event_id%>
+        <%= f.select :event_id, Event.pluck(:title,:id),{}, :include_blank => true, :required => true, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%= f.label :artist_id%>
+        <%= f.select :artist_id, Artist.pluck(:name,:id),{}, :required => true, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= f.submit "New Role", :class => 'btn btn-primary'%>
+    </div>
+  </div>
+
 <% end %>

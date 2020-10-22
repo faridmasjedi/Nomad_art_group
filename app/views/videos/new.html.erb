@@ -1,9 +1,28 @@
 <h1>New Video</h1>
 
 <%= form_for @video do |f| %>
-  <%=f.label :vid, "Video"%>
-  <%=f.text_field :vid %>
-  <%=f.label :event_id %>
-  <%=f.select :event_id, Event.pluck(:title,:id) %>
-  <%= f.submit %>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="form-group">
+      <%=f.label :vid, "Video"%>
+      <%=f.text_field :vid, :class => 'form-control' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="form-group">
+      <%=f.label :event_id %>
+      <%=f.select :event_id, Event.pluck(:title,:id),{}, :class => 'form-control' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <%= f.submit "New Video", :class => 'btn btn-primary' %>
+  </div>
+</div>
+
+
+
 <% end %>

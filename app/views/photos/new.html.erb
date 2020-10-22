@@ -1,9 +1,29 @@
 <h1> New Image </h1>
 
 <%= form_for @photo do |f| %>
-  <%= f.label :img ,"Image" %>
-  <%= f.text_field :img %>
-  <%= f.label :event_id %>
-  <%= f.select :event_id, Event.pluck(:title,:id)%>
-  <%= f.submit %>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%= f.label :img ,"Image" %>
+        <%= f.text_field :img, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="form-group">
+        <%= f.label :event_id %>
+        <%= f.select :event_id, Event.pluck(:title,:id),{}, :class => 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= f.submit "New Image", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+
+
+
+
 <% end %>

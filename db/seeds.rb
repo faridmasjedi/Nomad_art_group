@@ -26,10 +26,6 @@ actor3 = Role.create :title => 'Actor'
 r2 = Role.create :title => 'Set Designer'
 r3 = Role.create :title => 'Light Designer'
 
-
-# photographer1 = Role.create :title => 'Photographer'
-# photographer2 = Role.create :title => 'Photographer'
-
 costume1 = Role.create :title => 'Costume Designer'
 costume2 = Role.create :title => 'Costume Designer'
 
@@ -39,8 +35,6 @@ video1 = Role.create :title => 'Video'
 video2 = Role.create :title => 'Video'
 
 r5 = Role.create :title => 'Stage Manager'
-# r6 = Role.create :title => 'Producer'
-# r7 = Role.create :title => 'Makeup'
 puts "#{Role.count} title created"
 
 
@@ -72,11 +66,27 @@ p4 = Photo.create :img => 'https://nomadartgroup.com/images/TempPhoto/photo-1495
 puts "#{Photo.count} photos created"
 
 Video.destroy_all
-v1 = Video.create :vid => 'https://www.nomadartgroup.com/media/videos/2019/07/20/dystopia-ad1.mp4'
-v2 = Video.create :vid => 'https://youtu.be/HZkWf6LqJ-U'
-v3 = Video.create :vid => 'https://www.facebook.com/nomadartgroup/videos/476352509700684/'
-v4 = Video.create :vid => 'https://www.facebook.com/nomadartgroup/videos/1628496813854248/?t=11'
+v1 = Video.create :vid => 'https://www.youtube.com/watch?v=zS5njtHUi0w'
+v2 = Video.create :vid => 'https://www.youtube.com/watch?v=17Pq568h1v4'
+v3 = Video.create :vid => 'https://www.youtube.com/watch?v=-hA_oaBwfkg'
+v4 = Video.create :vid => 'https://www.youtube.com/watch?v=3HGOJWYXX5o'
 puts "#{Video.count} videos created"
+
+Review.destroy_all
+rev1 = Review.create :title => '"Night Writes" review',
+                     :link => 'https://nightwrites.com/2020/02/29/veronicas-room-nomad-art-group/',
+                     :img => 'https://i.imgur.com/BqlWk41.jpg',
+                     :description => 'There’s a lot going on in Veronica’s Room from the many layered
+                                      identities and exploration of the psychological self and personal
+                                      responsibility.'
+rev2 = Review.create :title => '"State of the art" review' ,
+                     :link => 'https://stateoftheart.net.au/reviews/veronicas-room-review/',
+                     :img => 'https://i.imgur.com/mFhWyvr.jpg',
+                     :description => 'Presenting an eerie rendition of Ira Levin’s polarising play, Nomad Art Group’s
+                                      latest production uncovers the fragility of personal identity and gradually
+                                      reveals the shocking consequences of trauma.'
+                                      
+puts "#{Review.count} reviews created"
 
 #associations
 puts "artists and roles"

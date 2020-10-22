@@ -1,0 +1,12 @@
+<h1>All Reviews</h1>
+
+<% @reviews.each do |rev| %>
+  <div class="review">
+    <div id= 'reviews-container'>
+      <%= link_to image_tag(rev.img,:width=>'70%'), rev.link, :target => "_blank" %>
+    </div><br>
+    <div id= 'review-info'>
+      <%= link_to rev.title, rev.link, :target => "_blank" %>
+    </div><hr>
+  </div>
+<% end %>

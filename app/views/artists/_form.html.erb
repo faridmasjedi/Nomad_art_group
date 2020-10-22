@@ -19,13 +19,13 @@
     <div class="col-md-4 offset-md-4">
       <div class="form-group">
         <%= f.label :about_me %>
-        <%= f.text_field :about_me, :class => 'form-control' %>
+        <%= f.text_area :about_me, cols:'30', rows:'10', :class => 'form-control' %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4 offset-md-4">
-      <%= f.submit "New Artist", :class => 'btn btn-primary'  %>
+      <%= f.submit nil, :class => 'btn btn-primary'  %>
     </div>
   </div>
 <% end %>

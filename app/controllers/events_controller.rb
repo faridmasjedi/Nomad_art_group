@@ -28,7 +28,6 @@ class EventsController < ApplicationController
   end
 
   def roles
-
     event = Event.find params[:id]
     @roles = event.roles
   end

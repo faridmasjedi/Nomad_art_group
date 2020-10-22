@@ -45,7 +45,7 @@ each artist's role.
 * Each role belongs to an artist in an event. This model gives the chance to admin
 to choose role and artist for any event.
 
-## Artist Model
+### Artist Model
 * Each artist can have many roles in different events.
 
 ## Layout

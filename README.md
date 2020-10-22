@@ -21,7 +21,7 @@ in software engineering immersive course of GA (General Assembly) Sydney.
 ## Models
 
 ### Models Scheme
-![Models Scheme](/assets/images/Models-Scheme.png)
+![Models Scheme](Models-Scheme.png)
 
 ### User Model
 * Login/Create account option

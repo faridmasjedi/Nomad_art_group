@@ -124,7 +124,11 @@
             <% @event.videos.each_with_index do |v,i| %>
               <div class="carousel-item <%= "active " if i==0 %>">
                 <% if v.vid.present? %>
-                  <iframe title="YouTube video player" width="100%" height='400px' src="https://www.youtube.com/embed/<%= youtube_embed(v.vid) %>" frameborder="0" allowfullscreen></iframe>
+                  <% if v.vid.include?("youtube") %>
+                    <iframe title="YouTube video player" width="100%" height='400px' src="https://www.youtube.com/embed/<%= youtube_embed(v.vid) %>" frameborder="0" allowfullscreen></iframe>
+                  <% else %>
+                    <iframe title="YouTube video player" width="100%" height='400px' src="<%= v.vid %>" frameborder="0" allowfullscreen></iframe>
+                  <% end %>
                   <% if @current_user.present? %>
                     <% if @current_user.admin? %>
                       <p><%=link_to 'Delete this video', v, :class => 'text-danger' %></p>

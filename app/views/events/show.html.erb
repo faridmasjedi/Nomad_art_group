@@ -96,17 +96,15 @@
   <div id='photos' class='collapse show' data-parent="#event-navs">
     <% @event.photos.each do |p| %>
       <% if p.img.present? %>
-        <% if @current_user.present? %>
-          <% if @current_user.admin? %>
+          <% if @current_user.present? && @current_user.admin? %>
             <%=link_to image_tag(p.img, :id => 'img-nav'), p %>
             <p><%=link_to 'Delete this image', p, :class => 'text-danger' %></p>
             <hr>
+          <% else %>
+            <p><%= image_tag p.img,:id => 'img-nav' %></p>
           <% end %>
-        <% else %>
-          <p><%= image_tag p.img,:id => 'img-nav' %></p>
-          <hr>
-        <% end %>
       <% end %>
+      <hr>
     <% end %>
   </div>
 

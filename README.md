@@ -21,7 +21,7 @@ in software engineering immersive course of GA (General Assembly) Sydney.
 ## Models
 
 ### Models Scheme
-![Models Scheme](/assets/images/Models-Scheme.png "Models Scheme")
+![Models Scheme](https://i.imgur.com/p0KOtB0.png)
 
 ### User Model
 * Login/Create account option
@@ -45,7 +45,7 @@ each artist's role.
 * Each role belongs to an artist in an event. This model gives the chance to admin
 to choose role and artist for any event.
 
-## Artist Model
+### Artist Model
 * Each artist can have many roles in different events.
 
 ## Layout

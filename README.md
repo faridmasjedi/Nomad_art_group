@@ -75,7 +75,7 @@ can see the artists, images and videos of the event.
 bottom of each image and video, a link to delete the image or video.
 
 ### Team page
-* In the Team page, the user can see photes all the artists who works with Nomad Art Group, with
+* In the Team page, the user can see photos all the artists who works with Nomad Art Group, with
 their name, linked to each artist.
 
 ### Artist page

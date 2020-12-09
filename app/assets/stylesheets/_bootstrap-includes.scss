@@ -180,3 +180,9 @@ header{
   max-width:900px;
   text-align:center;
 }
+
+@media (max-width:500px){
+  #event{
+    width:100%;
+  }
+}
